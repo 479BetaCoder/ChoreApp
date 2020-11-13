@@ -1,0 +1,8 @@
+[2020-11-12T23:28:45.261] [FATAL] choreApp - Server error: Tasks validation failed: description: Task Description is required, assignee: Task Assignee is required
+[2020-11-12T23:35:18.924] [FATAL] choreApp - Server error: Tasks validation failed: description: Task Description is required, assignee: Task Assignee is required
+[2020-11-12T23:35:56.125] [FATAL] choreApp - Server error: Tasks validation failed: description: Task Description is required, assignee: Task Assignee is required
+[2020-11-13T00:30:43.539] [WARN] choreApp - Client error: Tasks validation failed: description: Task Description is required
+[2020-11-13T00:31:15.888] [FATAL] choreApp - Server error: Tasks validation failed: assignee: Task Assignee is required
+[2020-11-13T00:31:24.039] [FATAL] choreApp - Server error: Tasks validation failed: assignee: Task Assignee is required
+[2020-11-13T00:34:04.846] [WARN] choreApp - Client error: Tasks validation failed: assignee: Task Assignee is required
+[2020-11-13T00:51:29.758] [WARN] choreApp - Client error: Tasks validation failed: assignee: Task Assignee is required
