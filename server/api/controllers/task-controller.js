@@ -38,6 +38,31 @@ exports.createTask = function (request, response) {
 };
 
 /**
+ * Clears all tasks
+ * returns success response.
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+
+exports.deleteTasks = (_request, response) => {
+  try {
+        const resolve = () => {
+            response.status(200).json({
+              message: "All tasks cleared"
+            })
+    };
+
+    taskService
+      .deleteTasks()
+      .then(resolve)
+      .catch(renderErrorResponse(response));
+
+  } catch(err){
+    renderErrorResponse(err)
+  }
+}
+
+/**
  * Returns Updated Task response.
  *
  * @param request
@@ -59,6 +84,12 @@ exports.updateTask = (request, response) => {
   }
 };
 
+/**
+ *
+ * Returns all tasks.
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
 exports.getTasks = (_request, response) => {
   try {
         const resolve = (tasks) => {

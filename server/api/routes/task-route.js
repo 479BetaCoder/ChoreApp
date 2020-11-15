@@ -15,4 +15,7 @@ module.exports = function (app) {
   // Task routes for getting all available tasks
   app.route("/v1/tasks")
     .get(taskController.getTasks);
+
+   // Task Routes for clearing all tasks
+   app.route("/v1/tasks").delete(taskController.deleteTasks);
 };

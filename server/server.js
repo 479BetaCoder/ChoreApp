@@ -14,6 +14,9 @@ mongoose.connect(utilConstants.MONGODB_URL, {
   promiseLibrary: global.Promise,
 });
 
+// enable cors
+app.use(cors());
+
 //Adding body parser for handling request and response objects.
 app.use(
   bodyParser.urlencoded({
@@ -29,8 +32,7 @@ app.use(
   })
 );
 
-// enable cors
-app.use(cors());
+
 
 //Initialize app
 let initApp = require("./api/app");

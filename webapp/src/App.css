@@ -33,8 +33,10 @@
     text-align: center;
    }
    html {
-    border: 5px solid;
-    height: 100%;
+    border: 8px solid;
+    height: auto;
+    min-height: 100%;
+    margin: 0;
    }
    .headerContainer {
     display: flex;
@@ -52,4 +54,53 @@
    .btnAddTask {
     height: 55px;
     width: 120px;
+   }
+   .todoListContainer {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+   }
+
+   .todoListContainer li {
+        background-color: #fff;
+        box-shadow: 0 0 30px -12px rgba(50,50,93,.25), 0 20px 20px -18px rgba(0,0,0,.3);
+        padding: 0px 30px;
+        margin: 0px 0px 40px 100px;
+        border-radius: 4px;
+        position: relative;
+        width: 80%;
+        height: 80px;
+        border-top: 1.5px solid #3f51b5;
+   }
+
+   .todoListContainer li div {
+       display: inline;
+   }
+
+   .listItem {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 80px;
+   }
+
+   .listItem label {
+    padding-top: 25px;
+    padding-left: 200px;
+    width: 150px;
+    font-family: serif;
+    font-size: larger;
+   }
+
+   .listItem button {
+    margin-top: 15px;
+    height: 50px;
+    margin-left: 200px;
+   }
+
+   .btnClearTask {
+    height: 55px;
+    margin-left: 10em !important;
+    width: fit-content;
+    margin-top: 2em !important;
+    margin-bottom: 1em !important;
    }

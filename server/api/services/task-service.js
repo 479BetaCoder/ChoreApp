@@ -4,8 +4,7 @@
 
 "use strict";
 const mongoose = require("mongoose"),
-  Task = mongoose.model("Tasks"),
-  utilConstants = require("../utils/Constants");
+  Task = mongoose.model("Tasks");
 
 /**
  * Saves and returns the new task object.
@@ -20,7 +19,6 @@ exports.createTask = function (taskObj) {
 
 /**
  * Updates and returns the Task object.
- * @param {Object} userStory {Task object}
  * @param {String} taskId
  */
 exports.updateTask = function (taskId) {
@@ -32,11 +30,19 @@ exports.updateTask = function (taskId) {
 };
 
 /**
- * Returns the list of tasks assigned to the user
- *
- * @param {string} userName {user name of the user}
+ * Clears all the tasks
  */
-exports.getTasks = function (userName) {
-  const promise = Task.find({ "assignee.userName": userName }).exec();
+exports.deleteTasks = function () {
+  const promise = Task.deleteMany().exec();
+  return promise;
+};
+
+
+
+/**
+ * Returns the list of tasks
+ */
+exports.getTasks = function () {
+  const promise = Task.find().exec();
   return promise;
 };
