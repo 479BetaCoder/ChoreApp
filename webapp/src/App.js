@@ -100,40 +100,42 @@ class App extends React.Component {
   renderTodoItems() {
     return (
       <ul className="todoListContainer">
-        {this.state.todoItems.map((element) => {
-          return (
-            <li key={element._id}>
-              <div className="listItem">
-                <i
-                  style={{
-                    color: element.completed ? "green" : "black",
-                    paddingTop: "22px",
-                  }}
-                  className="fa fa-check-circle fa-2x"
-                ></i>
-                <label>
-                  {element.assignee.length > 20
-                    ? element.assignee.substring(0, 20).concat("...")
-                    : element.assignee}
-                </label>
-                <label>
-                  {element.description.length > 25
-                    ? element.description.substring(0, 25).concat("...")
-                    : element.description}
-                </label>
-                <Button
-                  disabled={element.completed}
-                  onClick={() => this.updateTodo(element._id)}
-                  className="btnCompleteTask"
-                  variant="outlined"
-                  color="primary"
-                >
-                  Complete Task
-                </Button>
-              </div>
-            </li>
-          );
-        })}
+        {this.state.todoItems
+          ? this.state.todoItems.map((element) => {
+              return (
+                <li key={element._id}>
+                  <div className="listItem">
+                    <i
+                      style={{
+                        color: element.completed ? "green" : "black",
+                        paddingTop: "22px",
+                      }}
+                      className="fa fa-check-circle fa-2x"
+                    ></i>
+                    <label>
+                      {element.assignee.length > 20
+                        ? element.assignee.substring(0, 20).concat("...")
+                        : element.assignee}
+                    </label>
+                    <label>
+                      {element.description.length > 25
+                        ? element.description.substring(0, 25).concat("...")
+                        : element.description}
+                    </label>
+                    <Button
+                      disabled={element.completed}
+                      onClick={() => this.updateTodo(element._id)}
+                      className="btnCompleteTask"
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Complete Task
+                    </Button>
+                  </div>
+                </li>
+              );
+            })
+          : null}
       </ul>
     );
   }
@@ -141,56 +143,56 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <div style={{height: '100vh'}}>
-        <div className="headerContainer">
-          <h1>Chore App</h1>
+        <div style={{ height: "100vh" }}>
+          <div className="headerContainer">
+            <h1>Chore App</h1>
+          </div>
+          <form
+            className="formContainer"
+            autoComplete="off"
+            onSubmit={this.addTodo}
+          >
+            <TextField
+              id="assigneeText"
+              label="Assignee"
+              value={this.state.assignee}
+              onChange={this.handleAssigneeChange}
+              helperText="Please enter assignee name"
+              variant="outlined"
+              required
+            />
+            <TextField
+              id="descriptionText"
+              label="Description"
+              value={this.state.description}
+              onChange={this.handleDescriptionChange}
+              helperText="Please enter task description"
+              variant="outlined"
+              required
+            />
+            <Button
+              className="btnAddTask"
+              type="submit"
+              variant="outlined"
+              color="primary"
+            >
+              Add Task
+            </Button>
+          </form>
+          {this.state.todoItems ? (
+            <Button
+              className="btnClearTask"
+              onClick={() => this.clearTodos()}
+              type="submit"
+              variant="outlined"
+              color="secondary"
+            >
+              Clear Tasks
+            </Button>
+          ) : null}
+          <div>{this.renderTodoItems()}</div>
         </div>
-        <form
-          className="formContainer"
-          autoComplete="off"
-          onSubmit={this.addTodo}
-        >
-          <TextField
-            id="assigneeText"
-            label="Assignee"
-            value={this.state.assignee}
-            onChange={this.handleAssigneeChange}
-            helperText="Please enter assignee name"
-            variant="outlined"
-            required
-          />
-          <TextField
-            id="descriptionText"
-            label="Description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-            helperText="Please enter task description"
-            variant="outlined"
-            required
-          />
-          <Button
-            className="btnAddTask"
-            type="submit"
-            variant="outlined"
-            color="primary"
-          >
-            Add Task
-          </Button>
-        </form>
-        {this.state.todoItems.length > 0 ? (
-          <Button
-            className="btnClearTask"
-            onClick={() => this.clearTodos()}
-            type="submit"
-            variant="outlined"
-            color="secondary"
-          >
-            Clear Tasks
-          </Button>
-        ) : null}
-        <div>{this.renderTodoItems()}</div>
-      </div>
-      <Footer></Footer>
+        <Footer></Footer>
       </div>
     );
   }
