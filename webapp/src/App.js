@@ -179,7 +179,7 @@ class App extends React.Component {
               Add Task
             </Button>
           </form>
-          {this.state.todoItems ? (
+          {this.state.todoItems && this.state.todoItems.length > 0 ? (
             <Button
               className="btnClearTask"
               onClick={() => this.clearTodos()}
