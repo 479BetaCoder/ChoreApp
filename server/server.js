@@ -1,4 +1,5 @@
 const utilConstants = require("./api/utils/Constants");
+const path = require("path");
 const express = require("express"),
   app = express(),
   port = process.env.PORT || utilConstants.PORT,
@@ -32,7 +33,12 @@ app.use(
   })
 );
 
+// serve the static react app
+app.use(express.static("webapp/build"));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "webapp", "build", "index.html"));
+});
 
 //Initialize app
 let initApp = require("./api/app");
