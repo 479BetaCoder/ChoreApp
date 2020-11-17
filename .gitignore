@@ -46,5 +46,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# not pushing infrastructure for now
-infrastructure/*
+# ignore tfstate
+infrastructure/.terraform
+infrastructure/*.tfstate
+infrastructure/*.tfstate.*
