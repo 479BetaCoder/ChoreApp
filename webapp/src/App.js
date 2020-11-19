@@ -143,7 +143,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div style={{ height: "100vh" }}>
+        <div style={{ minHeight: "100vh" }}>
           <div className="headerContainer">
             <h1>Chore App</h1>
           </div>
